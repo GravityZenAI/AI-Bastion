@@ -249,7 +249,7 @@ RUN bash /opt/bastion/scripts/install.sh --layers 0,2,3,4,5
 
 ### For Windows (WSL2)
 
-AI-Bastion runs inside WSL2 Ubuntu. The agent gateway on WSL2 is already partially isolated by the Hyper-V VM boundary. Combine with Windows Firewall rules to block external access to gateway ports (8000, 8888, 9999, 18789). See the companion project **AI-Bastion-Guardian** *(coming soon)* for Windows-side network protection via PowerShell.
+AI-Bastion runs inside WSL2 Ubuntu. The agent gateway on WSL2 is already partially isolated by the Hyper-V VM boundary. Combine with Windows Firewall rules to block external access to gateway ports (8000, 8888, 9999, 18789). See the companion project **[AI-Bastion-Guardian](https://github.com/GravityZenAI/AI-Bastion-Guardian)** for Windows-side network protection via PowerShell.
 
 ---
 
@@ -293,13 +293,19 @@ See [`docs/ADAPTING-TO-YOUR-AGENT.md`](docs/ADAPTING-TO-YOUR-AGENT.md) for detai
 
 **[rust-ai-governance-pack](https://github.com/GravityZenAI/rust-ai-governance-pack)** — Governs HOW AI writes code (8 verification gates, 27 test katas, CI/CD pipeline for Rust).
 
-**AI-Bastion-Guardian** *(coming soon)* — Windows-side security for AI agents running in WSL2. PowerShell modules for firewall rules, egress control, credential protection, and WSL2 port exposure detection.
+**[AI-Bastion-Guardian](https://github.com/GravityZenAI/AI-Bastion-Guardian)** — Windows-side security for AI agents running in WSL2. PowerShell modules for firewall rules, egress control, credential protection, and WSL2 port exposure detection.
 
 Together:
 
 * **rust-ai-governance-pack** = Code governance (the rules AI follows when coding)
 * **AI-Bastion** = Infrastructure security (the fortress AI lives inside)
 * **AI-Bastion-Guardian** = Windows perimeter (the outer wall for WSL2 users)
+
+---
+
+## Roadmap
+
+See [ROADMAP.md](ROADMAP.md) for planned features including compiled Rust/Go core, real-time dashboard, eBPF monitoring, and Kubernetes support.
 
 ---
 
