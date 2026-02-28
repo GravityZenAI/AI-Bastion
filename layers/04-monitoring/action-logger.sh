@@ -34,14 +34,16 @@ export LOG_DIR
 if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
     echo "AI-Bastion Action Logger"
     echo ""
-    echo "Usage: source $(basename $0)"
+    echo "Usage: # shellcheck disable=SC1091
+source $(basename $0)"
     echo "  Then: log_action LEVEL \"action\" \"detail\""
     echo ""
     echo "Levels: INFO, WARN, ALERT, CRITICAL"
     echo "Log directory: $LOG_DIR"
     echo ""
     echo "Example:"
-    echo "  source $(basename $0)"
+    echo "  # shellcheck disable=SC1091
+source $(basename $0)"
     echo '  log_action INFO "Agent started" "PID: $$"'
     echo '  log_action ALERT "Suspicious command" "curl | sh detected"'
 fi

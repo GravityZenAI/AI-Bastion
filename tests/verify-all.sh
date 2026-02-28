@@ -7,6 +7,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASTION_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# shellcheck disable=SC1091
 source "$BASTION_ROOT/configs/bastion.conf" 2>/dev/null || true
 
 AGENT_DIR="${AGENT_DATA_DIR:-$HOME/.openclaw}"

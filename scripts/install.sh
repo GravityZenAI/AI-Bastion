@@ -7,6 +7,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASTION_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# shellcheck disable=SC1091
 source "$BASTION_ROOT/configs/bastion.conf" 2>/dev/null || true
 
 DRY_RUN=false
@@ -123,7 +124,8 @@ for layer in "${LAYERS_TO_INSTALL[@]}"; do
                 echo "  Would start: process-monitor.sh (background)"
                 echo "  Would start: network-monitor.sh (background)"
             else
-                echo "  [✅] Action logger available: source layers/04-monitoring/action-logger.sh"
+                echo "  [✅] Action logger available: # shellcheck disable=SC1091
+source layers/04-monitoring/action-logger.sh"
                 echo "  [*] Start monitors manually when ready:"
                 echo "      bash layers/04-monitoring/process-monitor.sh &"
                 echo "      bash layers/04-monitoring/network-monitor.sh &"

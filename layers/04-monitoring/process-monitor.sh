@@ -7,6 +7,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASTION_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+# shellcheck disable=SC1091
 source "$BASTION_ROOT/configs/bastion.conf" 2>/dev/null || true
 
 LOG_DIR="${LOG_DIR:-$HOME/.ai-bastion/logs}"
@@ -49,6 +50,7 @@ echo "[$(date -Is)] Process monitor started" >> "$LOG"
 # --- Monitor loop ---
 while true; do
     for pattern in "${SUSPICIOUS_PATTERNS[@]}"; do
+        # shellcheck disable=SC2009
         FOUND=$(ps aux 2>/dev/null | grep -i "$pattern" | grep -v grep | grep -v "process-monitor" || true)
         if [ -n "$FOUND" ]; then
             ALERT="[$(date -Is)] 🚨 SUSPICIOUS PROCESS: pattern='$pattern' | $FOUND"

@@ -1,5 +1,6 @@
 #!/bin/bash
 # AI-Bastion — Uninstaller
+# shellcheck disable=SC2009
 # Removes AI-Bastion data, canary tokens, and stops monitors.
 # Does NOT remove system packages (nftables, stubby, auditd).
 # License: Apache 2.0 | https://github.com/GravityZenAI/AI-Bastion
@@ -8,6 +9,7 @@ set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 BASTION_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+# shellcheck disable=SC1091
 source "$BASTION_ROOT/configs/bastion.conf" 2>/dev/null || true
 
 AGENT_DIR="${AGENT_DATA_DIR:-$HOME/.openclaw}"

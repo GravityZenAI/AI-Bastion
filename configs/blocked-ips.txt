@@ -1,8 +1,0 @@
-# AI-Bastion — Blocked IP Ranges
-# One CIDR range per line. Lines starting with # are comments.
-# Used by Layer 1 (nftables) and Layer 4 (network monitor).
-#
-# Add known malicious IPs here. Examples from documented incidents:
-
-# ClawHavoc C2 infrastructure (Bulgaria, Jan-Feb 2026)
-91.92.242.0/24
